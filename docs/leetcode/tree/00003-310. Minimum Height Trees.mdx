@@ -10,14 +10,14 @@ keywords:
 
 [link](https://leetcode.com/problems/minimum-height-trees/)
 
-Cut the leaf node until the node left <= 2
+Cut the leaf node until the node left \<= 2
 
 Leaf node = indeg == 1
 
 ```python
 class Solution:
     def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
-        
+
         if n == 1:
             return [0]
 
@@ -35,7 +35,7 @@ class Solution:
             indeg[v1] += 1
             indeg[v2] += 1
 
-    
+
         dq = deque([i for i in range(n) if indeg[i] == 1])
 
 
@@ -57,7 +57,7 @@ class Solution:
                     if indeg[vv] == 1:
                         dq.append(vv)
 
-        
+
             if n - len(s) <= 2:
                 break
 

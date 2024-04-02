@@ -1,11 +1,11 @@
-import React from 'react';
-import clsx from 'clsx';
-import {ThemeClassNames} from '@docusaurus/theme-common';
-import {isActiveSidebarItem} from '@docusaurus/theme-common/internal';
-import Link from '@docusaurus/Link';
-import isInternalUrl from '@docusaurus/isInternalUrl';
-import IconExternalLink from '@theme/Icon/ExternalLink';
-import styles from './styles.module.css';
+import React from 'react'
+import clsx from 'clsx'
+import { ThemeClassNames } from '@docusaurus/theme-common'
+import { isActiveSidebarItem } from '@docusaurus/plugin-content-docs/client'
+import Link from '@docusaurus/Link'
+import isInternalUrl from '@docusaurus/isInternalUrl'
+import IconExternalLink from '@theme/Icon/ExternalLink'
+import styles from './styles.module.css'
 export default function DocSidebarItemLink({
   item,
   onItemClick,
@@ -14,9 +14,9 @@ export default function DocSidebarItemLink({
   index,
   ...props
 }) {
-  const {href, label, className, autoAddBaseUrl} = item;
-  const isActive = isActiveSidebarItem(item, activePath);
-  const isInternalLink = isInternalUrl(href);
+  const { href, label, className, autoAddBaseUrl } = item
+  const isActive = isActiveSidebarItem(item, activePath)
+  const isInternalLink = isInternalUrl(href)
   return (
     <li
       className={clsx(
@@ -33,7 +33,7 @@ export default function DocSidebarItemLink({
           {
             'menu__link--active': isActive,
           },
-          styles['menu__link']
+          styles['menu__link'],
         )}
         autoAddBaseUrl={autoAddBaseUrl}
         aria-current={isActive ? 'page' : undefined}
@@ -46,5 +46,5 @@ export default function DocSidebarItemLink({
         {!isInternalLink && <IconExternalLink />}
       </Link>
     </li>
-  );
+  )
 }
