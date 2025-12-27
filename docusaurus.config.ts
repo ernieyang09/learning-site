@@ -208,4 +208,13 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
 }
 
+if (process.env.NODE_ENV === 'production') {
+  config.themeConfig.algolia = {
+    appId: process.env.ALGOLIA_APP_ID,
+    apiKey: process.env.ALGOLIA_API_KEY,
+    indexName: process.env.ALGOLIA_INDEX_NAME,
+    contextualSearch: true,
+  }
+}
+
 export default config
